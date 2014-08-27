@@ -6,6 +6,7 @@
 // マルチバイト
 mb_language('Japanese');
 mb_internal_encoding('UTF-8');
+mb_http_output("UTF-8");
 mb_regex_encoding("UTF-8");
 
 $workspaceDir = realpath(dirname(realpath(__FILE__)) . "/..");
@@ -16,7 +17,7 @@ Zend_Loader::registerAutoload();
 
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>PHP Sand Box</title>
     <style>
 div#frame {
