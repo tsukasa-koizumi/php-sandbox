@@ -9,10 +9,18 @@ mb_internal_encoding('UTF-8');
 mb_http_output("UTF-8");
 mb_regex_encoding("UTF-8");
 
+if (isset($_GET['phpinfo'])) {
+    phpinfo();
+    exit;
+}
+
 $workspaceDir = realpath(dirname(realpath(__FILE__)) . "/..");
 set_include_path($workspaceDir . '/Libs' . PATH_SEPARATOR . get_include_path());
-require_once 'Zend/Loader.php';
-Zend_Loader::registerAutoload();
+//require_once 'Zend/Loader.php';
+//Zend_Loader::registerAutoload();
+require_once 'Zend/Loader/Autoloader.php';
+$autoloader = Zend_Loader_Autoloader::getInstance();
+$autoloader->setFallbackAutoloader(true); 
 ?>
 
 <html>
